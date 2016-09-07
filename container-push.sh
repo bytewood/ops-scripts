@@ -17,8 +17,8 @@ usage() {
 [ -z "${repository}" ] && usage
 [ -z "${tag}" ] && usage
 
-docker -f "$dockerfile" tag "${repository}:${tag}" "${registry}/${repository}:${tag}"
-docker -f "$dockerfile" tag "${repository}:latest" "${registry}/${repository}:latest"
-docker -f "$dockerfile" push "${registry}/${repository}:${tag}"
-docker -f "$dockerfile" push "${registry}/${repository}:latest"
+docker tag "${repository}:${tag}" "${registry}/${repository}:${tag}"
+docker tag "${repository}:latest" "${registry}/${repository}:latest"
+docker push "${registry}/${repository}:${tag}"
+docker push "${registry}/${repository}:latest"
 

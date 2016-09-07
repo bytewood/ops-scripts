@@ -12,5 +12,5 @@ usage() {
 [ -z "${repository}" ] && usage
 [ -z "${tag}" ] && usage
 
-docker -f "$dockerfile" build -t ${repository}:${tag} -t ${repository}:latest .
+docker build -f "$dockerfile" -t ${repository}:${tag} -t ${repository}:latest .
 
