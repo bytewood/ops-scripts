@@ -2,6 +2,8 @@
 registry="$1"
 repository="$2"
 tag="$3"
+folder=`dirname $0`
+dockerfile="$folder/Dockerfile"
 
 usage() { 
     echo "Usage:"
@@ -15,8 +17,8 @@ usage() {
 [ -z "${repository}" ] && usage
 [ -z "${tag}" ] && usage
 
-docker tag "${repository}:${tag}" "${registry}/${repository}:${tag}"
-docker tag "${repository}:latest" "${registry}/${repository}:latest"
-docker push "${registry}/${repository}:${tag}"
-docker push "${registry}/${repository}:latest"
+docker -f "$dockerfile" tag "${repository}:${tag}" "${registry}/${repository}:${tag}"
+docker -f "$dockerfile" tag "${repository}:latest" "${registry}/${repository}:latest"
+docker -f "$dockerfile" push "${registry}/${repository}:${tag}"
+docker -f "$dockerfile" push "${registry}/${repository}:latest"
 
