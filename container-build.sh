@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
-repository=$1
-tag=$2
+registry="$1"
+repository="$2"
+tag="$3"
 folder=`dirname $0`
 dockerfile="$folder/Dockerfile"
 usage() {
     echo "Usage:"
-    echo "./docker-build.sh <registry> <docker_image> <tag>"
+    echo "./container-build.sh <registry> <docker_image> <tag>"
     exit 1
 }
 

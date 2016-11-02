@@ -7,9 +7,9 @@ dockerfile="$folder/Dockerfile"
 
 usage() { 
     echo "Usage:"
-    echo "./docker-push.sh <registry> <repository> <tag>"
+    echo "./container-push.sh <registry> <repository> <tag>"
     echo "e.g."
-    echo "./docker-push.sh localhost:500 bytewood/ops-microservice 999"
+    echo "./container-push.sh localhost:500 bytewood/ops-microservice 999"
     exit 1
 }
 
